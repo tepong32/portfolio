@@ -1,0 +1,100 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="background">
+
+	
+	<!-- sidebar -->
+	<input type="checkbox" name="" checked="checked">
+	<span class="icon"></span>
+	<ul>
+		<br>
+		<i>
+			<li><a href="#intro">Intro</a></li>
+<!-- 			<li><a href="#storyline">Storyline</a></li> -->
+			<li><a href="#samples">Samples</a></li>
+			<li><a href="#contactme">Contact me!</a></li>
+		</i>
+	</ul>
+	<div class="mainview">
+		<section id="intro">
+			<div class="cover">
+				<img src="{{ user.profile.profile_cover.url }}" style="height: 15rem; width: 100%; position: relative; margin-bottom: 1rem;" alt="cover">
+				<footer style="position: relative; justify-content: right; bottom: 100px; border: none">
+					<h3><i>You miss 100% of the shots you do not take.<i></h3>
+				</footer>
+			</div>
+			<div class="container">			
+				<div class="row">
+					<div class="col">
+						<h3>{{user.profile}}</h3><br>
+						
+						<img src="{{ user.profile.profile_image.url }}" class="profilePic" alt="profilePic">
+						{{user.profile.intro|linebreaks}}
+						<i>"{{user.profile.quote}}"</i>
+					</div>
+				
+
+					<div class="col border border-success">
+						<br><br><br>
+						<h3>How I started:</h3>
+						<div>{{user.profile.storyline|linebreaks}}</div>
+						<br>
+					</div>
+				</div>
+				
+				</div>
+		</section>
+
+		<!-- <section id="storyline"></section> -->
+
+		<section id="samples">
+			<div class="container">
+				<div class="row">
+					<!-- slideshow effects of sample works here -->
+					<div class="col workSlides">
+
+					</div>
+
+					<div class="col">
+						<br><br><br><br>
+						<h3>My sample projects:</h3>
+						<p>
+							I have been experimenting on the Django Web Framework for months now and I can confidently say that I'm quite familiar with how it works. I actually created the outline of this portfolio website in more or less three hours, front-end and back-end. Without looking ("...so much") on CSS tutorials (I know... I still needed a cheat-sheet. ;P ). Eye-candies will definitely take longer. <br>
+							<br>
+							<b>Expertise</b> <br>
+							<b>Django Web Framework</b> (static and dynamic websites)<br>
+							<b>HTML & CSS</b> <br>
+							<b>Web-hosting and domain names setup</b> <br>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="contactme">
+			<div class="container border border-success">
+			<br><br><br><br>
+			<h3>Contact me!</h3>
+			<p>You can find me on Social Media thru: <br>
+				Facebook : www.facebook.com/{{user.profile.fb}}	<br>
+				Twitter : twitter.com/{{user.profile.twitter}}	<br>
+				Instagram : instagram.com/{{user.profile.insta}}	<br>
+				LinkedIn : linkedin.com/{{user.profile.linkedin}} <br>
+
+				Or you can send me an email at: <br>
+				Gmail : {{user.profile.google}} <br>
+
+				<hr>
+
+				If you are also a developer interested to check out my works (snippets and samples), see: <br>
+				GitHub : github.com/{{user.profile.github}}
+			</div>
+		</section>
+	</div>
+</div>
+
+{% endblock content %}
